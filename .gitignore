@@ -1,0 +1,19 @@
+# Ignorar archivos y directorios específicos de Angular
+/front/node_modules/
+/front/dist/
+/front/*.log
+/front/src/environments/*.ts
+
+# Ignorar archivos y directorios específicos de Node.js
+/api/node_modules/
+/api/*.log
+/api/.env
+
+# Ignorar archivos y directorios generales
+*.o
+*.a
+*.so
+temp/
+tmp/
+.DS_Store
+Thumbs.db

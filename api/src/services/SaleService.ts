@@ -54,12 +54,30 @@ export class SaleService{
             const saleCreate = this.saleRepository.create({ ...sale, user });
             const saleSaved = await queryRunner.manager.save(saleCreate);
     
-            // Crear y guardar los detalles de la venta
+            // Procesar los detalles de la venta
             for (const detail of sale.details) {
-                const product = await this.productRepository.findOne({ where: { id: detail.product_id } });
+                // Bloquear el producto para evitar problemas de concurrencia
+                const product = await queryRunner.manager.findOne(Product, { 
+                    where: { id: detail.product_id },
+                    lock: { mode: "pessimistic_write" }  // Evita modificaciones concurrentes
+                });
+    
                 if (!product) throw new NotFoundError("Producto con id: " + detail.product_id + " no encontrado");
+    
+                // Validar stock disponible antes de actualizar
+                if (product.stock < detail.quantity) {
+                    throw new Error(`Stock insuficiente para el producto ${product.id}`);
+                }
+    
+                // Restar stock
+                product.stock -= detail.quantity;
+    
+                // Crear el detalle de la venta
                 const detailCreate = this.detailRepository.create({ ...detail, product, sale: saleSaved });
                 await queryRunner.manager.save(detailCreate);
+    
+                // Guardar la actualización del stock dentro de la transacción
+                await queryRunner.manager.save(product);
             }
     
             // Confirmar la transacción
@@ -74,6 +92,7 @@ export class SaleService{
             await queryRunner.release();
         }
     }
+    
 
     async getSalesByUser(user_id:number){
         const userExist=await this.userRepository.findOne({where:{id:user_id}});

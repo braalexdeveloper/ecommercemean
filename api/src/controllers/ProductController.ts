@@ -14,7 +14,11 @@ export class ProductController{
       try { 
         const page=req.query.page ? Number(req.query.page) : undefined;
         const limit=req.query.limit ? Number(req.query.limit) : undefined;
-        const products=await this.productService.getProducts(page,limit);
+        const idCategory=req.query.idCategory ? Number(req.query.idCategory) : undefined;
+        const minPrice=req.query.minPrice? Number(req.query.minPrice) : undefined;
+        const maxPrice=req.query.maxPrice? Number(req.query.maxPrice) : undefined;
+        const orderPrice=req.query.orderPrice ? req.query.orderPrice : "";
+        const products=await this.productService.getProducts(page,limit,idCategory,orderPrice.toString(),minPrice,maxPrice);
         res.status(200).json(products);
       } catch (error) {
         res.status(500).json({error:error instanceof Error ? error.message : "Error al obtener productos"});

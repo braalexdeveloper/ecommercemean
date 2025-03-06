@@ -28,11 +28,16 @@ app.use('/api',authRoutes);
 const uploadsPath = path.join(__dirname, 'uploads');
 app.use('/uploads', express.static(uploadsPath));
 
+export default app;
+
 AppDataSource.initialize().then(()=>{
     console.log('✅ Base de datos conectada');
 
     // Iniciar Servidor
     app.listen(5000, () => console.log('🚀 Servidor corriendo en el puerto 5000'));
-}).catch((error) => console.error('❌ Error al conectar la base de datos', error));
+}).catch((error) => {
+    console.error('❌ Error al conectar la base de datos', error);
+    process.exit(1); // Termina el proceso si la BD no se conecta
+})
 
   

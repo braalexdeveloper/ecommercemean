@@ -65,7 +65,11 @@ export class UserController {
             return res.status(500).json({ error: error instanceof Error ? error.message : "Error al eliminar usuario" });
         }
     }
+  
     
-    
+    static async hello(req: Request, res: Response): Promise<any> {
+        return res.json({ message: "Hola mundo"  });
+        
+    }
 
 }

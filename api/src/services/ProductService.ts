@@ -1,6 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { Repository } from "typeorm";
+import { Between, Repository } from "typeorm";
 import { Product } from "../models/Product";
 import { AppDataSource } from "../config/database";
 import { ProductInterface } from "../interfaces/product.interface";
@@ -17,17 +17,44 @@ export class ProductService {
         this.categoryRepository = AppDataSource.getRepository(Category);
     }
 
-    async getProducts(page:number=1,limit:number=10):Promise<{data:Product[],total:number,page:number,totalPages:number}> {
+    async getProducts(page:number=1,limit:number=10,idCategory:number=0,orderPrice:string,minPrice?:number,maxPrice?:number):Promise<{data:Product[],total:number,page:number,totalPages:number}> {
 
         const skip=(page-1)*limit;
+        const whereCondition: any = {};
+
+        // Filtro por categoría si se proporciona idCategory
+        if (idCategory) {
+          whereCondition.category = { id: idCategory };
+        }
+      
+        // Filtro por rango de precios si se proporcionan minPrice y maxPrice
+        if (minPrice !== undefined && maxPrice !== undefined) {
+          whereCondition.price = Between(minPrice, maxPrice);
+        } else if (minPrice !== undefined) {
+          whereCondition.price = { $gte: minPrice };
+        } else if (maxPrice !== undefined) {
+          whereCondition.price = { $lte: maxPrice };
+        }
+        
+        const orderCondition:any={};
+        if(orderPrice==='asc'){
+            orderCondition.price='ASC';
+        }else if(orderPrice==='desc'){
+           orderCondition.price='DESC';
+        }else {
+            orderCondition.id = 'DESC'; // Orden por defecto por ID en orden descendente
+          }
+        console.log(orderCondition)
         const [data,total]=await this.productRepository.findAndCount({
             skip:Number(skip),
             take:limit,
-            order:{
-                id:'DESC',
-            },
-            relations:['category']
+            order:orderCondition,
+            relations:['category'],
+            where: whereCondition,
         });
+
+        // Log de los datos obtenidos
+  console.log("Data:", data);
 
         const totalPages=Math.ceil(total/limit);
 

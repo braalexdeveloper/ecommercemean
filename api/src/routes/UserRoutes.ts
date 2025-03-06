@@ -8,7 +8,7 @@ router.get('/users/:id', UserController.getUser);
 router.post('/users',UserController.createUser);
 router.put('/users/:id', UserController.updateUser);
 router.delete('/users/:id', UserController.deleteUser);
-
+router.get("/hello", UserController.hello);
 // Función para manejar rutas async sin repetir try/catch en cada una
 /*const asyncHandler = (fn: Function) => (req: any, res: any, next: any) =>
     Promise.resolve(fn(req, res)).catch(next);

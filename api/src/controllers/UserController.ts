@@ -6,7 +6,7 @@ export class UserController {
     static async getUsers(req: Request, res: Response) {
         try {
             const users = await UserService.getUsers();
-            res.json(users);
+            res.status(200).json(users);
         } catch (error) {
             res.status(500).json({ error: error instanceof Error ? error.message : "Error al obtener usuarios" });
         }

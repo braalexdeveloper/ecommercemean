@@ -1,49 +1,59 @@
-import request from "supertest";
+import request from 'supertest';
+
+import { UserService } from '../services/UserService';
 import app from '../server';
-import { AppDataSource } from "../config/database";
-import { User } from "../models/User";
-import { UserService } from "../services/UserService";
 
+// Configura la aplicación Express
+/*const app = express();
+app.use(express.json());
+app.get('/api/users', UserController.getUsers);*/
 
-/*test("Debe responder con Hola mundo",async ()=>{
-    const res=await request(app).get("/api/hello");
-    expect(res.status).toBe(200);
-    expect(res.body.message).toBe("Hola mundo");
-})*/
+describe('GET /users', () => {
+    afterEach(() => {
+        jest.clearAllMocks(); // Limpia los mocks después de cada prueba
+    });
 
-jest.mock('../services/UserService');
+    it('should return a list of users', async () => {
+        const mockUsers = [
+            {
+                id: 3,
+                email: 'brayan@gmail.com',
+                password: 'brayan123',
+                role: {
+                    id: 1,
+                    name: 'Almacen',
+                    users: [],
+                },
+                sales: [],
+            },
+        ];
 
-describe('GET /api/users',()=>{
- beforeAll(async ()=>{
-    await AppDataSource.initialize();
- });
+        // Mockea UserService.getUsers para devolver los usuarios
+        jest.spyOn(UserService, 'getUsers').mockResolvedValue(mockUsers);
 
- afterAll(async ()=>{
-    await AppDataSource.destroy();
- });
+        // Realiza la solicitud a la ruta
+        const res = await request(app).get('/api/users');
 
- it('deberia devolver una lista de usuarios con status 200', async ()=>{
-  const mockUsers=[
-    { id: 1, name: 'John Doe', email: 'john@example.com' },
-    { id: 2, name: 'Jane Doe', email: 'jane@example.com' }
-  ];
+        // Verifica la respuesta
+        expect(res.status).toBe(200);
+        expect(res.body).toEqual(mockUsers);
+    });
 
-  (UserService.getUsers as jest.Mock).mockResolvedValue(mockUsers);
+    it('should handle errors and return status 500', async () => {
+        const mockError = new Error('Error al obtener usuarios');
 
-  const response=await request(app).get('/api/users');
+        // Mockea UserService.getUsers para lanzar un error
+        jest.spyOn(UserService, 'getUsers').mockRejectedValue(mockError);
 
-  expect(response.status).toBe(200);
-  expect(response.body).toEqual(mockUsers);
+        // Realiza la solicitud a la ruta
+        const res = await request(app).get('/api/users');
 
- });
-
- 
-
-it('deberia manejar errores y devolver status 500',async ()=>{
-    (UserService.getUsers as jest.Mock).mockResolvedValue(new Error('Error en la base de datos'));
-    const response=await request(app).get('/api/users');
-    expect(response.status).toBe(500);
-    expect(response.body).toEqual({ error: 'Error en la base de datos' });
+        // Verifica la respuesta de error
+        expect(res.status).toBe(500);
+        expect(res.body).toEqual({ error: 'Error al obtener usuarios' });
+    });
 });
+
+describe('Get /user/id',()=>{
 
 });

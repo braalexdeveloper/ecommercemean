@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiburon - Zapatillas Premium</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container top-bar-content">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +1 234 567 890</span>
+                <span><i class="fas fa-envelope"></i> contacto@tiburon.com</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <img src="https://via.placeholder.com/40x40/121212/e63946?text=TS" alt="Tiburon Logo">
+                TIBUR<span>ON</span>
+            </a>
+            
+            <div class="user-actions">
+                <div class="user-action">
+                    <i class="far fa-user"></i>
+                    <span>Mi cuenta</span>
+                </div>
+                <div class="user-action">
+                    <i class="far fa-heart"></i>
+                    <span>Favoritos</span>
+                </div>
+                <div class="user-action cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span>Carrito</span>
+                    <div class="cart-count">3</div>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-list">
+                <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Hombres</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Mujeres</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Niños</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Novedades</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Ofertas</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Colecciones</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+   <!-- Hero Slider -->
+   <section class="hero">
+    <div class="hero-slider">
+        <!-- Slide 1 -->
+        <div class="slide active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80');">
+            <div class="slide-content">
+                <h1>Nueva Colección Verano 2023</h1>
+                <p>Descubre las zapatillas más frescas y ligeras para esta temporada</p>
+                <button class="hero-btn">Ver Colección</button>
+            </div>
+        </div>
+        
+        <!-- Slide 2 -->
+        <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');">
+            <div class="slide-content">
+                <h1>Tecnología de Alto Rendimiento</h1>
+                <p>Zapatillas diseñadas para deportistas que buscan superar sus límites</p>
+                <button class="hero-btn">Descubre Más</button>
+            </div>
+        </div>
+        
+        <!-- Slide 3 -->
+        <div class="slide" style="background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80');">
+            <div class="slide-content">
+                <h1>Hasta 50% de Descuento</h1>
+                <p>Aprovecha nuestras ofertas especiales en modelos seleccionados</p>
+                <button class="hero-btn">Ver Ofertas</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Slider Navigation Dots -->
+    <div class="slider-nav">
+        <div class="slider-dot active" data-slide="0"></div>
+        <div class="slider-dot" data-slide="1"></div>
+        <div class="slider-dot" data-slide="2"></div>
+    </div>
+</section>
+    
+     <!-- Sección de Productos Más Vendidos -->
+     <section class="featured-products">
+        <div class="container">
+            <h2 class="section-title">LOS MÁS VENDIDOS</h2>
+            <p class="section-subtitle">Descubre las zapatillas favoritas de nuestros clientes</p>
+            
+            <div class="products-carousel">
+                <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                
+                <div class="products-container">
+                    <!-- Producto 1 -->
+                    <div class="product-card">
+                        <div class="product-badge">TOP VENTAS</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Zapatilla Tiburon Runner Pro">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-favorite"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tiburon Runner Pro</h3>
+                            <div class="product-price">
+                                <span class="current-price">$89.99</span>
+                                <span class="original-price">$109.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(128)</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <span>Añadir al carrito</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="product-card">
+                        <div class="product-badge">NUEVO</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1543508282-6319a3e2621f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=715&q=80" alt="Zapatilla Tiburon Air Max">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-favorite"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tiburon Air Max</h3>
+                            <div class="product-price">
+                                <span class="current-price">$119.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(96)</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <span>Añadir al carrito</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="product-card">
+                        <div class="product-badge">OFERTA</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80" alt="Zapatilla Tiburon Court">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-favorite"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tiburon Court</h3>
+                            <div class="product-price">
+                                <span class="current-price">$75.99</span>
+                                <span class="original-price">$99.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span>(245)</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <span>Añadir al carrito</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1600269452121-4f2416e55c28?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1965&q=80" alt="Zapatilla Tiburon Ultra Boost">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-favorite"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tiburon Ultra Boost</h3>
+                            <div class="product-price">
+                                <span class="current-price">$129.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span>(187)</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <span>Añadir al carrito</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 5 -->
+                    <div class="product-card">
+                        <div class="product-badge">LIMITADO</div>
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Zapatilla Tiburon X9000">
+                            <div class="product-actions">
+                                <button class="quick-view"><i class="fas fa-eye"></i></button>
+                                <button class="add-favorite"><i class="far fa-heart"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3 class="product-title">Tiburon X9000</h3>
+                            <div class="product-price">
+                                <span class="current-price">$149.99</span>
+                            </div>
+                            <div class="product-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span>(72)</span>
+                            </div>
+                            <button class="add-to-cart">
+                                <span>Añadir al carrito</span>
+                                <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Aquí iría el contenido del footer -->
+            <p style="text-align: center;">© 2023 Tiburon. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-list').classList.toggle('active');
+        });
+        
+        // Simular cantidad de productos en el carrito
+        // En una aplicación real, esto vendría de tu sistema de carrito
+        function updateCartCount(count) {
+            document.querySelector('.cart-count').textContent = count;
+        }
+        
+        // Ejemplo de interacción
+        document.querySelectorAll('.user-action').forEach(action => {
+            action.addEventListener('click', function() {
+                // Aquí iría la lógica para cada acción
+                if (this.querySelector('.fa-shopping-bag')) {
+                    alert('Carrito de compras clickeado');
+                } else if (this.querySelector('.fa-heart')) {
+                    alert('Favoritos clickeado');
+                } else if (this.querySelector('.fa-user')) {
+                    alert('Mi cuenta clickeado');
+                }
+            });
+        });
+
+        // Hero Slider Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.slide');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentSlide = 0;
+            const slideInterval = 5000; // 5 segundos
+            
+            // Función para cambiar de slide
+            function goToSlide(n) {
+                slides[currentSlide].classList.remove('active');
+                dots[currentSlide].classList.remove('active');
+                currentSlide = (n + slides.length) % slides.length;
+                slides[currentSlide].classList.add('active');
+                dots[currentSlide].classList.add('active');
+            }
+            
+            // Event listeners para los dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    goToSlide(index);
+                    resetInterval();
+                });
+            });
+            
+            // Auto slide
+            let slideTimer = setInterval(nextSlide, slideInterval);
+            
+            function nextSlide() {
+                goToSlide(currentSlide + 1);
+            }
+            
+            function resetInterval() {
+                clearInterval(slideTimer);
+                slideTimer = setInterval(nextSlide, slideInterval);
+            }
+            
+            // Pausar slider al hacer hover
+            const hero = document.querySelector('.hero');
+            hero.addEventListener('mouseenter', () => {
+                clearInterval(slideTimer);
+            });
+            
+            hero.addEventListener('mouseleave', () => {
+                resetInterval();
+            });
+        });
+
+        // Carrusel de Productos
+        document.addEventListener('DOMContentLoaded', function() {
+            const productContainer = document.querySelector('.products-container');
+            const productCards = document.querySelectorAll('.product-card');
+            const prevBtn = document.querySelector('.prev-btn');
+            const nextBtn = document.querySelector('.next-btn');
+            let currentIndex = 0;
+            const cardWidth = 300; // Ancho de cada tarjeta + margen
+            const visibleCards = 3; // Número de tarjetas visibles a la vez
+            
+            // Animación de entrada para las tarjetas
+            productCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-in');
+            });
+            
+            // Función para mover el carrusel
+            function moveCarousel() {
+                const maxIndex = productCards.length - visibleCards;
+                if (currentIndex > maxIndex) currentIndex = maxIndex;
+                if (currentIndex < 0) currentIndex = 0;
+                
+                productContainer.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+                
+                // Deshabilitar botones cuando no hay más elementos
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= maxIndex;
+            }
+            
+            // Event listeners para los botones
+            nextBtn.addEventListener('click', () => {
+                currentIndex++;
+                moveCarousel();
+                animateCards('slide-left');
+            });
+            
+            prevBtn.addEventListener('click', () => {
+                currentIndex--;
+                moveCarousel();
+                animateCards('slide-right');
+            });
+            
+            // Animación de las tarjetas
+            function animateCards(animationClass) {
+                productCards.forEach(card => {
+                    card.classList.remove('slide-left', 'slide-right');
+                    void card.offsetWidth; // Trigger reflow
+                    card.classList.add(animationClass);
+                    
+                    // Remover la clase después de la animación
+                    setTimeout(() => {
+                        card.classList.remove(animationClass);
+                    }, 500);
+                });
+            }
+            
+            // Efecto hover para los botones de añadir al carrito
+            const addToCartBtns = document.querySelectorAll('.add-to-cart');
+            addToCartBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    btn.style.transform = 'translateY(-3px)';
+                    btn.style.boxShadow = '0 5px 15px rgba(230, 57, 70, 0.4)';
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = 'translateY(0)';
+                    btn.style.boxShadow = 'none';
+                });
+                
+                btn.addEventListener('click', function() {
+                    // Animación al hacer clic
+                    this.classList.add('clicked');
+                    setTimeout(() => {
+                        this.classList.remove('clicked');
+                    }, 300);
+                    
+                    // Actualizar contador del carrito
+                    const cartCount = document.querySelector('.cart-count');
+                    let count = parseInt(cartCount.textContent) + 1;
+                    cartCount.textContent = count;
+                    
+                    // Efecto de notificación
+                    const productTitle = this.closest('.product-info').querySelector('.product-title').textContent;
+                    showNotification(`¡${productTitle} añadido al carrito!`);
+                });
+            });
+            
+            // Mostrar notificación
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.className = 'notification';
+                notification.textContent = message;
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+            
+            // Botones de favoritos
+            const favoriteBtns = document.querySelectorAll('.add-favorite');
+            favoriteBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                    const icon = this.querySelector('i');
+                    
+                    if (this.classList.contains('active')) {
+                        icon.classList.remove('far');
+                        icon.classList.add('fas');
+                        icon.style.color = 'var(--rojo)';
+                        showNotification('Añadido a favoritos');
+                    } else {
+                        icon.classList.remove('fas');
+                        icon.classList.add('far');
+                        icon.style.color = '';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

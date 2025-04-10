@@ -54,6 +54,48 @@ describe('GET /users', () => {
     });
 });
 
-describe('Get /user/id',()=>{
+describe('Get /user/id', () => {
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should retunr a user', async () => {
+        const user = {
+            id: 3,
+            email: 'brayan@gmail.com',
+            password: 'brayan123',
+            role: {
+                id: 1,
+                name: 'Almacen',
+                users: [],
+            },
+            sales: [],
+        }
+
+        jest.spyOn(UserService, 'getUserById').mockResolvedValue(user);
+
+        const res = await request(app).get('/api/users/3');
+        expect(res.status).toBe(200);
+        expect(res.body).toEqual(user);
+    });
+
+    it('deberia devolver error 500',async ()=>{
+        const mockError = new Error('Error al obtener usuario');
+      jest.spyOn(UserService,'getUserById').mockRejectedValue(mockError);
+
+      const res=await request(app).get('/api/users/3');
+      expect(res.status).toBe(500);
+      expect(res.body).toEqual({ error:'Error al obtener usuario' });
+    });
+
+    
+    it('deberia devolver error 404 si no encuentra el user',async ()=>{
+    
+      jest.spyOn(UserService,'getUserById').mockResolvedValue(null);
+
+      const res=await request(app).get('/api/users/3');
+      expect(res.status).toBe(404);
+      expect(res.body).toEqual({ error: 'Usuario no encontrado' });
+    });
 
 });

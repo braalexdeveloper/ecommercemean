@@ -13,9 +13,16 @@ export class UserController {
     }
 
     static async getUser(req:Request,res:Response):Promise<any>{
-        const user=await UserService.getUserById(Number(req.params.id));
-        if(!user) res.status(404).json({error:"Usuario no encontrado!"})
-        return res.status(200).json({user});
+        try {
+            const id = parseInt(req.params.id, 10); // Obtén el ID de la URL
+            const user = await UserService.getUserById(id); // Llama al servicio
+            if (!user) {
+                return res.status(404).json({ error: 'Usuario no encontrado' });
+            }
+            res.json(user); // Devuelve el usuario
+        } catch (error) {
+            res.status(500).json({ error: error instanceof Error ? error.message : 'Error al obtener usuario' });
+        }
     }
 
     static async createUser(req: Request, res: Response):Promise<any> {
